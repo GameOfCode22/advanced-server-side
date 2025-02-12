@@ -16,6 +16,7 @@ CREATE TABLE users (
 );
 ```
 ### Insert values to `users` Table
+```sql
 INSERT INTO users (name, age, gender, email, password) VALUES
 ('John Doe', 25, 'Male', 'johndoe@example.com', 'hashed_password1'),
 ('Jane Smith', 30, 'Female', 'janesmith@example.com', 'hashed_password2'),
@@ -37,7 +38,7 @@ INSERT INTO users (name, age, gender, email, password) VALUES
 ('Paul Allen', 38, 'Male', 'paulallen@example.com', 'hashed_password18'),
 ('Quinn Scott', 29, 'Other', 'quinnscott@example.com', 'hashed_password19'),
 ('Rachel Adams', 27, 'Female', 'racheladams@example.com', 'hashed_password20');
-
+```
 
 🚀 How to Use
 1️⃣ Run the CREATE TABLE query first to set up the users table.
