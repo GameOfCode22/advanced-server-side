@@ -1,3 +1,5 @@
+const pool = require("../config/database");
+
 var users = [
   {
     id: 1,
@@ -71,39 +73,30 @@ var users = [
 
 class UserDAO {
   async getAllUsers() {
-    return users;
+    const [rows] = await pool.query("SELECT * FROM users");
+    return rows;
   }
   async getUserById(id) {
-    return users.find((user) => user.id == id);
+    const [rows] = await pool.query("SELECT * FROM users WHERE id = ?", [id]);
+    return rows[0];
   }
   async createUser(user) {
-    user.id = users.length + 1;
-    users.push(user);
-    return user;
+    const { name, age, gender, email, password } = user;
+    const [result] = await pool.query(
+      "INSERT INTO users (name, age, gender, email, password) VALUES (?, ?, ?, ?, ?)",
+      [name, age, gender, email, password]
+    );
+    return { id: result.insertId };
   }
   async updateUser(id, user) {
-    const userIndex = users.findIndex((user) => user.id == id);
-
-    users[userIndex] = {
-      ...users[userIndex], // Keep existing data
-      name: user.name ?? users[userIndex].name,
-      age: user.age ?? users[userIndex].age,
-      gender: user.gender ?? users[userIndex].gender,
-      email: user.email ?? users[userIndex].email,
-      phone: user.phone ?? users[userIndex].phone,
-      address: user.address ?? users[userIndex].address,
-      course: user.course ?? users[userIndex].course,
-      year: user.year ?? users[userIndex].year,
-      gpa: user.gpa ?? users[userIndex].gpa,
-    };
-
-    return users[userIndex];
+    const { name, email, password, gender, age } = user;
+    await pool.query(
+      "UPDATE users SET name = ?, email = ?, password = ?,  gender = ?,  age = ? WHERE id = ?",
+      [name, email, password, gender, age, id]
+    );
   }
   async deleteUser(id) {
-    const userIndex = users.findIndex((user) => user.id == id);
-
-    users.splice(userIndex, 1);
-    return true;
+    await pool.query("DELETE FROM users WHERE id = ?", [id]);
   }
 }
 

@@ -4,11 +4,19 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start:local": "cross-env NODE_ENV=local node app.js",
+    "start:uat": "cross-env NODE_ENV=uat node app.js",
+    "start:prod": "cross-env NODE_ENV=prod node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "dinuwara",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.2"
+    "cross-env": "^7.0.3",
+    "express": "^4.21.2",
+    "mysql2": "^3.12.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.7"
   }
 }

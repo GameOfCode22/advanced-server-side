@@ -41,6 +41,13 @@ INSERT INTO users (name, age, gender, email, password) VALUES
 ```
 
 ### 🚀 How to Use
-- 1️⃣ Run the CREATE TABLE query first to set up the users table.
-- 2️⃣ Then, execute the INSERT query to add sample users.
-- 3️⃣ Your database is now ready to use! 🎉
+- Run the CREATE TABLE query first to set up the users table.
+- Then, execute the INSERT query to add sample users.
+- Your database is now ready to use! 🎉
+- Install .env file
+
+
+## 📌 Topics Covered
+- ✅ Node.js Basics & Express.js  
+- ✅ RESTful APIs & Middleware  
+- ✅ Database Integration (SQL)
