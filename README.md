@@ -40,7 +40,7 @@ INSERT INTO users (name, age, gender, email, password) VALUES
 ('Rachel Adams', 27, 'Female', 'racheladams@example.com', 'hashed_password20');
 ```
 
-🚀 How to Use
-1️⃣ Run the CREATE TABLE query first to set up the users table.
-2️⃣ Then, execute the INSERT query to add sample users.
-3️⃣ Your database is now ready to use! 🎉
+### 🚀 How to Use
+- 1️⃣ Run the CREATE TABLE query first to set up the users table.
+- 2️⃣ Then, execute the INSERT query to add sample users.
+- 3️⃣ Your database is now ready to use! 🎉
